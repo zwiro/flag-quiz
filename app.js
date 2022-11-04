@@ -1,4 +1,4 @@
-import countries from './countries.json' assert {type: 'json'};
+import countries from './countries.js'
 
 const gameWrapper = document.querySelector('.game-wrapper');
 const btnWrapper = document.querySelector('.answer-buttons');
@@ -9,7 +9,6 @@ const guessedCountries = [];
 const question = [];
 
 let score = 0;
-let isGameOver = false;
 
 function startGame() {
     createAnswerBtns();
@@ -122,7 +121,6 @@ function gameOverScreen() {
     gameOverMsg.classList.add('game-over-msg')
     scoreMsg.style.visibility = 'none';
     gameOverMsg.innerText = `No more flags! You guessed ${score} of 193 flags!`;
-    const children = gameWrapper.children;
     gameWrapper.innerHTML = '';
     gameWrapper.append(gameOverMsg);
     scoreMsg.classList.add('hide');
