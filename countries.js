@@ -1,5 +1,5 @@
 
-export const countries = [
+[
     {
         "id": 4,
         "alpha2": "af",
