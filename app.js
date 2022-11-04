@@ -69,15 +69,16 @@ function btnsAction() {
     const scoreCounter = document.querySelector('#score-counter');
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
+            console.log(flagImg.src.slice(-13))
             const answer = countries.find(element => element.name.includes(btn.innerText))
-            if (answer.flag.includes(flagImg.src.slice(-13))) {
+            if (answer.flag.includes(flagImg.src.slice(-14))) {
                 btn.style.backgroundColor = 'green';
                 score++;
                 guessedCountries.push(answer);
                 showMsg('Correct answer!', 'green');
                 setTimeout(() => nextQuestion(), 500);
             } else {
-                guessedCountries.push(countries.find(el => (el.flag.includes(flagImg.src.slice(-13)))));
+                guessedCountries.push(countries.find(el => (el.flag.includes(flagImg.src.slice(-14)))));
                 btn.style.backgroundColor = 'red';
                 showMsg('Wrong answer!', 'red');
                 setTimeout(() => nextQuestion(), 500);
@@ -93,10 +94,10 @@ function nextQuestion() {
     questionCount.innerText++;
     btns.forEach(btn => btn.style.backgroundColor = '#BFD7EA');
     if (guessedCountries.length < 193) {
-        while (guessedCountries.some(element => element.flag.includes(flagImg.src.slice(-13)))) {
+        while (guessedCountries.some(element => element.flag.includes(flagImg.src.slice(-14)))) {
             question.length = 0;
             renderQuestion();
-            if (!guessedCountries.some(element => element.flag.includes(flagImg.src.slice(-13)))) {
+            if (!guessedCountries.some(element => element.flag.includes(flagImg.src.slice(-14)))) {
                 break;
             }
         }
