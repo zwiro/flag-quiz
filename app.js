@@ -1421,7 +1421,6 @@ function btnsAction() {
     const scoreCounter = document.querySelector('#score-counter');
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
-            console.log(question)
             const answer = countries.find(element => element.name.includes(btn.innerText))
             if (answer.flag.includes(flagImg.src.slice(-13))) {
                 btn.style.backgroundColor = 'green';
